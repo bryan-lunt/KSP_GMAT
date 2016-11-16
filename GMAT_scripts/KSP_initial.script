@@ -17,22 +17,33 @@ GMAT Sun.EquatorialRadius = 261600;
 GMAT Sun.Mu = 1172332800;
 
 GMAT Mercury.OrbitSpiceKernelName = {'/Users/lunt/Applications/Games/KSP/v1.2/python/KSP_ephem_gen/ephemiris/1_Moho.spk'};
+GMAT Mercury.OrbitColor = [255 190 150];
 GMAT Mercury.EquatorialRadius = 250;
-GMAT Mercury.Mu = 168.60938;
+GMAT Mercury.Mu = 168.6093824;
 
 GMAT Venus.OrbitSpiceKernelName = {'/Users/lunt/Applications/Games/KSP/v1.2/python/KSP_ephem_gen/ephemiris/2_Eve.spk'};
 GMAT Venus.EquatorialRadius = 700;
-GMAT Venus.Mu = 8171.7302;
+GMAT Venus.Mu = 8171.72997734;
 
 GMAT Earth.OrbitSpiceKernelName = {'/Users/lunt/Applications/Games/KSP/v1.2/python/KSP_ephem_gen/ephemiris/3_Kerbin.spk'};
+GMAT Earth.EquatorialRadius = 600;
+GMAT Earth.Mu = 3531.60003584;
 
 GMAT Mars.OrbitSpiceKernelName = {'/Users/lunt/Applications/Games/KSP/v1.2/python/KSP_ephem_gen/ephemiris/4_Duna.spk'};
+GMAT Mars.EquatorialRadius = 320;
+GMAT Mars.Mu = 301.3632;
 
 GMAT Jupiter.OrbitSpiceKernelName = {'/Users/lunt/Applications/Games/KSP/v1.2/python/KSP_ephem_gen/ephemiris/5_Dres.spk'};
+GMAT Jupiter.EquatorialRadius = 138;
+GMAT Jupiter.Mu = 21.484488704;
 
 GMAT Saturn.OrbitSpiceKernelName = {'/Users/lunt/Applications/Games/KSP/v1.2/python/KSP_ephem_gen/ephemiris/6_Jool.spk'};
+GMAT Saturn.EquatorialRadius = 6000;
+GMAT Saturn.Mu = 282528.01545;
 
 GMAT Uranus.OrbitSpiceKernelName = {'/Users/lunt/Applications/Games/KSP/v1.2/python/KSP_ephem_gen/ephemiris/7_Eeloo.spk'};
+GMAT Uranus.EquatorialRadius = 210;
+GMAT Uranus.Mu = 74.410811392;
 
 %----------------------------------------
 %---------- User-Defined Celestial Bodies
@@ -63,12 +74,12 @@ GMAT DefaultSC.DateFormat = TAIModJulian;
 GMAT DefaultSC.Epoch = '21545';
 GMAT DefaultSC.CoordinateSystem = Copernicus;
 GMAT DefaultSC.DisplayStateType = Cartesian;
-GMAT DefaultSC.X = -26492892.08087596;
-GMAT DefaultSC.Y = 144697637.9747161;
-GMAT DefaultSC.Z = 582.4824555814266;
-GMAT DefaultSC.VX = -29.79422523625064;
-GMAT DefaultSC.VY = 1.671780650884078;
-GMAT DefaultSC.VZ = -2.005998335652059;
+GMAT DefaultSC.X = 15410410.19265524;
+GMAT DefaultSC.Y = -288080229.5355949;
+GMAT DefaultSC.Z = -115585.8064444661;
+GMAT DefaultSC.VX = 59.51676664429498;
+GMAT DefaultSC.VY = -7.436332960482213;
+GMAT DefaultSC.VZ = 9.073419376089682;
 GMAT DefaultSC.DryMass = 850;
 GMAT DefaultSC.Cd = 2.2;
 GMAT DefaultSC.Cr = 1.8;
@@ -99,27 +110,9 @@ GMAT DefaultSC.AttitudeCoordinateSystem = EarthMJ2000Eq;
 GMAT DefaultSC.EulerAngleSequence = '321';
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 %----------------------------------------
-
-%---------- Propagators
-
+%---------- ForceModels
 %----------------------------------------
-
-
 
 Create ForceModel DefaultProp_ForceModel;
 GMAT DefaultProp_ForceModel.CentralBody = Earth;
@@ -138,7 +131,6 @@ GMAT DefaultProp_ForceModel.GravityField.Earth.EarthTideModel = 'None';
 %----------------------------------------
 
 Create Propagator DefaultProp;
-
 GMAT DefaultProp.FM = DefaultProp_ForceModel;
 GMAT DefaultProp.Type = RungeKutta89;
 GMAT DefaultProp.InitialStepSize = 60;
@@ -148,23 +140,23 @@ GMAT DefaultProp.MaxStep = 2700;
 GMAT DefaultProp.MaxStepAttempts = 50;
 GMAT DefaultProp.StopIfAccuracyIsViolated = true;
 
-%----------------------------------------
-%---------- Burns
-%----------------------------------------
 
-Create ImpulsiveBurn ExampleBurn;
 
-GMAT ExampleBurn.CoordinateSystem = Local;
 
-GMAT ExampleBurn.Origin = Earth;
 
-GMAT ExampleBurn.Axes = VNB;
-GMAT ExampleBurn.Element1 = 0;
-GMAT ExampleBurn.Element2 = 0;
-GMAT ExampleBurn.Element3 = 0;
-GMAT ExampleBurn.DecrementMass = false;
-GMAT ExampleBurn.Isp = 300;
-GMAT ExampleBurn.GravitationalAccel = 9.81;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %----------------------------------------
 %---------- Coordinate Systems
@@ -204,9 +196,9 @@ GMAT DC.Algorithm = NewtonRaphson;
 
 Create OrbitView OpenGLPlot1;
 GMAT OpenGLPlot1.SolverIterations = Current;
-GMAT OpenGLPlot1.UpperLeft = [ 0.1652777777777778 0.02 ];
-GMAT OpenGLPlot1.Size = [ 0.6451388888888889 0.8333333333333334 ];
-GMAT OpenGLPlot1.RelativeZOrder = 16;
+GMAT OpenGLPlot1.UpperLeft = [ 0.3368055555555556 0.04888888888888889 ];
+GMAT OpenGLPlot1.Size = [ 0.6423611111111112 0.8288888888888889 ];
+GMAT OpenGLPlot1.RelativeZOrder = 57;
 GMAT OpenGLPlot1.Maximized = false;
 
 GMAT OpenGLPlot1.Add = {DefaultSC, Earth, Sun, Mercury, SolarSystemBarycenter};
@@ -238,8 +230,8 @@ GMAT OpenGLPlot1.EnableConstellations = On;
 Create OrbitView OrbitView1;
 GMAT OrbitView1.SolverIterations = Current;
 GMAT OrbitView1.UpperLeft = [ 0.1423611111111111 0.02888888888888889 ];
-GMAT OrbitView1.Size = [ 0.85 0.7544444444444445 ];
-GMAT OrbitView1.RelativeZOrder = 20;
+GMAT OrbitView1.Size = [ 0.8472222222222222 0.75 ];
+GMAT OrbitView1.RelativeZOrder = 61;
 GMAT OrbitView1.Maximized = false;
 GMAT OrbitView1.Add = {DefaultSC, Earth, Sun, Mercury, Venus, Jupiter, Mars, Saturn, Uranus};
 GMAT OrbitView1.CoordinateSystem = Copernicus;
@@ -266,6 +258,19 @@ GMAT OrbitView1.StarCount = 7000;
 GMAT OrbitView1.EnableStars = On;
 GMAT OrbitView1.EnableConstellations = On;
 
+%----------------------------------------
+%---------- Arrays, Variables, Strings
+%----------------------------------------
+
+Create Array SOIradii[10,1];
+GMAT SOIradii(1, 1) = 9646.663;
+GMAT SOIradii(2, 1) = 85109.368;
+GMAT SOIradii(3, 1) = 84159.288;
+GMAT SOIradii(4, 1) = 47921.948;
+GMAT SOIradii(5, 1) = 32832.84;
+GMAT SOIradii(6, 1) = 2455985.152;
+GMAT SOIradii(7, 1) = 119082.944;
+
 
 
 %----------------------------------------
@@ -275,10 +280,7 @@ GMAT OrbitView1.EnableConstellations = On;
 %----------------------------------------
 
 BeginMissionSequence;
-Propagate DefaultProp(DefaultSC) {DefaultSC.ElapsedDays = 200};
-
-
-
+Propagate DefaultProp(DefaultSC) {DefaultSC.ElapsedDays = 120};
 
 
 
