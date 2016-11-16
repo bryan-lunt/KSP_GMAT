@@ -17,4 +17,7 @@ http://naif.jpl.nasa.gov/naif/tutorials.html
 
 	http://gmatplugins.sourceforge.net/blog/wp-content/uploads/2011/09/PluginDevelopment.pdf
 
+	It looks like it won't be so bad. Check out the code from the included plugin "EphemPropagatorPlugin". It may be as simple as altering that code.
+	While conic sections are more efficient, it might be good enough just to do a regular force-model but assign the force only to the one object whose sphere of influence we are in, orbital mechanics/calculus will take care of the rest.
+
 
